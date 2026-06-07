@@ -73,7 +73,6 @@ cd learning-go
 │       ├── constants
 │       ├── datatypes
 │       ├── hello_world
-│       ├── README.md
 │       └── variables
 ├── .gitignore
 ├── go.mod
