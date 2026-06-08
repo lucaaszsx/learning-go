@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func run() {
+func main() {
     // First "Hello, world" in Go, lol
     fmt.Println("Hello, world!")
 }
