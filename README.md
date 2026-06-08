@@ -70,17 +70,21 @@ cd learning-go
 ├── build
 ├── fundamentals
 │   └── basics
-│       ├── constants
-│       ├── datatypes
-│       ├── helloworld
-│       ├── functions
 │       ├── conditional
-│       ├── loops
-│       └── variables
-├── .gitignore
+│       ├── constant
+│       ├── error
+│       ├── function
+│       ├── hello
+│       ├── input
+│       ├── interface
+│       ├── loop
+│       ├── pointer
+│       ├── struct
+│       ├── types
+│       └── variable
 ├── go.mod
 ├── LICENSE
-├── README.md (you're here)
+├── README.md
 └── scripts
 ```
 
