@@ -75,6 +75,7 @@ cd learning-go
 │       ├── helloworld
 │       ├── functions
 │       ├── conditional
+│       ├── loops
 │       └── variables
 ├── .gitignore
 ├── go.mod
