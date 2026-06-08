@@ -92,10 +92,10 @@ cd learning-go
 
 After cloning this repository, you will be able to run the code examples.
 
-For run the example `getting_started/datatypes`, execute the following command:
+For run the example `getting_started/types`, execute the following command:
 
 ```bash
-go run getting_started/datatypes/main.go
+go run getting_started/types/main.go
 ```
 
 ## Notes
