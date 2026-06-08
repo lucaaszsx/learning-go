@@ -72,7 +72,9 @@ cd learning-go
 │   └── basics
 │       ├── constants
 │       ├── datatypes
-│       ├── hello_world
+│       ├── helloworld
+│       ├── functions
+│       ├── conditional
 │       └── variables
 ├── .gitignore
 ├── go.mod
