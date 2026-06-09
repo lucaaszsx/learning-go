@@ -10,12 +10,15 @@ func main() {
     var sum = sumTwo(a, b)
     fmt.Println("Result of sumTwo:", sum)
 
+    variadicFunc()
+    variadicFunc(1, 2, 3, 6, 7, 8)
+
     var max int = 25
     var safeSum, err = safeSumTwo(a, b, max)
 
     if err != nil {
         fmt.Println(err.Error())
-        // or: panic(err.Error())
+        // or: panic(err.Error()) | os.Exit(code)
         return
     }
     
@@ -41,4 +44,10 @@ func safeSumTwo(a int, b int, max int) (int, error) {
     }
 
     return sum, err
+}
+
+// Variadic functions can have zero or multiple arguments
+// "numbers" argument is a slice of type int
+func variadicFunc(numbers ...int) {
+    fmt.Printf("Type: %T\nArguments: %d\n", numbers, numbers)
 }
