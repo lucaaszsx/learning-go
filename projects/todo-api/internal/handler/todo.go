@@ -32,7 +32,7 @@ func (h *Handler) HandleTodos(w http.ResponseWriter, r *http.Request) {
         case http.MethodPost:
             h.create(w, r)
         default:
-            http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+            respondError(w, http.StatusMethodNotAllowed, "method not allowed")
         }
         return
     }
@@ -49,7 +49,7 @@ func (h *Handler) HandleTodos(w http.ResponseWriter, r *http.Request) {
     case http.MethodDelete:
         h.delete(w, r, id)
     default:
-        http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+        respondError(w, http.StatusMethodNotAllowed, "method not allowed")
     }
 }
 
@@ -63,12 +63,12 @@ func (h *Handler) list(w http.ResponseWriter, r *http.Request) {
 func (h *Handler) create(w http.ResponseWriter, r *http.Request) {
     var todo model.Todo
     if err := json.NewDecoder(r.Body).Decode(&todo); err != nil {
-        http.Error(w, "invalid JSON body", http.StatusBadRequest)
+        respondError(w, http.StatusBadRequest, "invalid JSON body")
         return
     }
 
     if todo.Title == "" {
-        http.Error(w, "title is required", http.StatusBadRequest)
+        respondError(w, http.StatusBadRequest, "title is required")
         return
     }
 
@@ -80,7 +80,7 @@ func (h *Handler) create(w http.ResponseWriter, r *http.Request) {
 func (h *Handler) getByID(w http.ResponseWriter, r *http.Request, id string) {
     todo, ok := h.store.GetByID(id)
     if !ok {
-        http.Error(w, "todo not found", http.StatusNotFound)
+        respondError(w, http.StatusNotFound, "todo not found")
         return
     }
 
@@ -91,13 +91,13 @@ func (h *Handler) getByID(w http.ResponseWriter, r *http.Request, id string) {
 func (h *Handler) update(w http.ResponseWriter, r *http.Request, id string) {
     var update model.Todo
     if err := json.NewDecoder(r.Body).Decode(&update); err != nil {
-        http.Error(w, "invalid JSON body", http.StatusBadRequest)
+        respondError(w, http.StatusBadRequest, "invalid JSON body")
         return
     }
 
     updated, ok := h.store.Update(id, update)
     if !ok {
-        http.Error(w, "todo not found", http.StatusNotFound)
+        respondError(w, http.StatusNotFound, "todo not found")
         return
     }
 
@@ -107,7 +107,7 @@ func (h *Handler) update(w http.ResponseWriter, r *http.Request, id string) {
 // delete handles DELETE /todos/{id} - removes a todo
 func (h *Handler) delete(w http.ResponseWriter, r *http.Request, id string) {
     if !h.store.Delete(id) {
-        http.Error(w, "todo not found", http.StatusNotFound)
+        respondError(w, http.StatusNotFound, "todo not found")
         return
     }
 
@@ -119,4 +119,9 @@ func respondJSON(w http.ResponseWriter, status int, data interface{}) {
     w.Header().Set("Content-Type", "application/json")
     w.WriteHeader(status)
     json.NewEncoder(w).Encode(data)
+}
+
+// respondError writes a JSON error response
+func respondError(w http.ResponseWriter, status int, message string) {
+    respondJSON(w, status, map[string]string{"error": message})
 }
