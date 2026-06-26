@@ -103,27 +103,6 @@ cd learning-go
 ├── README.md
 └── scripts
 ```
-├── assets
-├── build
-├── fundamentals
-│   └── basics
-│       ├── conditional
-│       ├── constant
-│       ├── error
-│       ├── function
-│       ├── hello
-│       ├── input
-│       ├── interface
-│       ├── loop
-│       ├── pointer
-│       ├── struct
-│       ├── types
-│       └── variable
-├── go.mod
-├── LICENSE
-├── README.md
-└── scripts
-```
 
 ## Running examples
 
