@@ -100,6 +100,8 @@ cd learning-go
 │       └── time
 ├── go.mod
 ├── LICENSE
+├── projects
+│   └── todo-api
 ├── README.md
 └── scripts
 ```
@@ -119,6 +121,18 @@ For run a stdlib example like `fundamentals/stdlib/fmt`:
 ```bash
 go run fundamentals/stdlib/fmt/main.go
 ```
+
+### Running projects
+
+Projects have their own `go.mod`, so you need to enter the project directory first:
+
+```bash
+# Example: running the todo-api project
+cd projects/todo-api
+go run main.go
+```
+
+Each project has its own README with specific instructions, endpoints, and usage examples.
 
 ## Notes
 
