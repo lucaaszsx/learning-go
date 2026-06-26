@@ -69,6 +69,43 @@ cd learning-go
 ├── assets
 ├── build
 ├── fundamentals
+│   ├── basics
+│   │   ├── conditional
+│   │   ├── constant
+│   │   ├── error
+│   │   ├── function
+│   │   ├── hello
+│   │   ├── input
+│   │   ├── interface
+│   │   ├── loop
+│   │   ├── pointer
+│   │   ├── struct
+│   │   ├── types
+│   │   └── variable
+│   └── stdlib
+│       ├── context
+│       ├── encoding-json
+│       ├── errors
+│       ├── fmt
+│       ├── io
+│       ├── math
+│       ├── net-http
+│       ├── os
+│       ├── regexp
+│       ├── sort
+│       ├── strconv
+│       ├── strings
+│       ├── sync
+│       ├── testing
+│       └── time
+├── go.mod
+├── LICENSE
+├── README.md
+└── scripts
+```
+├── assets
+├── build
+├── fundamentals
 │   └── basics
 │       ├── conditional
 │       ├── constant
@@ -92,10 +129,16 @@ cd learning-go
 
 After cloning this repository, you will be able to run the code examples.
 
-For run the example `getting_started/types`, execute the following command:
+For run the example `fundamentals/basics/types`, execute the following command:
 
 ```bash
-go run getting_started/types/main.go
+go run fundamentals/basics/types/main.go
+```
+
+For run a stdlib example like `fundamentals/stdlib/fmt`:
+
+```bash
+go run fundamentals/stdlib/fmt/main.go
 ```
 
 ## Notes
